@@ -30,7 +30,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index',['filter' => 'auth']);
+// $routes->get('/', 'Home::index',['filter' => 'auth']);
 // short  test..
 /* that is some test Start..  */
 $routes->get('/simple', 'sitecontrollers::simple');
@@ -38,8 +38,10 @@ $routes->get('/about-us', 'sitecontrollers::about');
 /* that is some test End..  */
 // , ['filter' => 'admin-auth:dual,noreturn']
 /* Admin Pnal Routes Start.. */
-$routes->match(['get','post'],'/login', 'admin::login',['filter' => 'noauth']);
-$routes->match(['get','post'],'/sinin', 'admin::sinin',['filter' => 'noauth']);
+$routes->match(['get','post'],'/', 'Login::Login',['filter' => 'noauth']);
+$routes->match(['get','post'],'/validation_login', 'Login::validation_login',['filter' => 'noauth']);
+// $routes->match(['get','post'],'/login', 'admin::login',['filter' => 'noauth']);
+// $routes->match(['get','post'],'/sinin', 'admin::sinin',['filter' => 'noauth']);
 $routes->get('/logout', 'admin::logout',['filter' => 'auth']);
 // $routes->match(['get','post'], '/login', 'admin::login',['filter' => 'noauth']);
 // $routes->match(['get','post'], '/sinin', 'admin::sinin',['filter' => 'noauth']);
